@@ -1,0 +1,88 @@
+/* ==============================================
+======== Appointments Dashboard Page ===========
+================================================ */
+.main {
+	background-color: lighten($lightBlack, 3%);
+	padding: $m-box-size 0;
+	height: auto;
+	min-height: 80vh;
+}
+
+.content-wrapper {
+	color: $sonicSilver;
+}
+
+.appointments-article {
+	width: 100%;
+	@include containerWidth_sm;
+}
+
+/* ============== Accordion ================ */
+.accordion {
+	background-color: $black;
+	margin: $m-box-size 0;
+	padding: $m-box-size;
+	border-radius: pxToRem($b-radius);
+	overflow: hidden;
+}
+
+.accordion__header {
+	@include horizontalFlex(space-between, center);
+}
+
+.accordion__heading {
+	text-align: left;
+}
+
+.plus-circle {
+	font-size: pxToRem(18);
+	color: $darkModerateYellow;
+}
+
+.accordion__body {
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: height .2s ease-in, opacity .4s ease-in-out .1s;
+}
+
+/* ==============================================
+================ Media Queries ===================
+================================================ */
+@media (min-width: pxToRem(768)) {
+	.appointments-article {
+		@include containerWidth_md;
+	}
+
+	.accordion {
+		margin: $l-box-size 0;
+	}
+
+	.plus-circle {
+		font-size: pxToRem(20);
+	}
+}
+
+@media (min-width: pxToRem(1024)) {
+	.appointments-article {
+		@include containerWidth_lg;
+	}
+
+	.accordion {
+		padding: $l-box-size;
+	}
+
+	.plus-circle {
+		font-size: pxToRem(22);
+	}
+}
+
+@media (min-width: pxToRem(1400)) {
+	.appointments-article {
+		@include containerWidth_xl;
+	}
+
+	.plus-circle {
+		font-size: pxToRem(24);
+	}
+}

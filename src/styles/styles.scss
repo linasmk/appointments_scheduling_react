@@ -1,0 +1,19 @@
+/* ================ Base ================== */
+@import "./base/settings";
+@import "./base/globals";
+@import "./base/functions";
+@import "./base/mixins/generic-mixins";
+@import "./base/mixins/button-mixins";
+/* ================ Fonts ================== */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/* ================ Components ================== */
+@import "./components/header";
+@import "./components/appointments-dashboard-page";
+@import "./components/search-appointments";
+@import "./components/list-appointments";
+@import "./components/add-appointment";
+@import "./components/react_dates_overrides";
+@import "./components/footer";
+/* Last */
+@import "./classes/js-classes";
+@import "./classes/h-classes";

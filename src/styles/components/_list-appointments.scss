@@ -1,0 +1,131 @@
+/* ==============================================
+================ List Appointments ===================
+================================================ */
+.appointments-article__header {
+	background-color: $black;
+	margin: $m-box-size 0;
+	padding: $m-box-size;
+	border-radius: pxToRem($b-radius);
+}
+
+.appointments-article__heading {
+	text-align: left;
+}
+
+.appointment-item {
+	background-color: $black;
+	position: relative;
+	border: pxToRem(1) solid $sonicSilver;
+	padding: $m-box-size;
+	transition: border .3s ease-in-out;
+	margin: $m-box-size 0;
+
+	&:hover {
+		border: pxToRem(1) solid $darkModerateYellow;
+
+		.h-icon-styles {
+			transform: scale(1);
+		}
+
+		&::after {
+			@include overlay(rgba($yellow, 0.1), linear-gradient(150deg, rgba($yellow, .05),
+			rgba($darkModerateYellow, .05)));
+		}
+	}
+}
+
+.appointment-item__close-circle {
+	top: pxToRem(4);
+	right: pxToRem(4);
+	transition: transform .2s ease-in-out;
+}
+
+.appointment-item__fill-edit {
+	top: pxToRem(33);
+	right: pxToRem(4);
+	transition: transform .2s ease-in-out .2s;
+}
+
+.appointment-item__check-circle {
+	top: pxToRem(33);
+	right: pxToRem(4);
+	transition: transform .2s ease-in-out .2s;
+}
+
+.appointment-item__name {
+	color: $white;
+	font-weight: 100;
+}
+
+.appointment-item__name span {
+	font-weight: 900;
+}
+
+.appointment-item__date {
+	font-weight: 100;
+}
+
+.appointment-item__date span {
+	font-weight: 500;
+	font-style: italic;
+}
+
+.appointment-item__notes-heading {
+	font-weight: 100;
+	color: $white;
+}
+
+.appointment-item__notes-p {
+	font-weight: 500;
+}
+
+.appointment-item__created-at {
+	font-weight: 100;
+	color: $white;
+}
+
+.appointment-item__created-at span {
+	font-weight: 500;
+	font-style: italic;
+	color: $sonicSilver;
+}
+
+[contenteditable="false"] {
+	transition: all .3s ease-in;
+}
+
+[contenteditable="true"] {
+	background-color: lighten($lightBlack, 5%);
+	border: 1px solid $sonicSilver;
+	transition: all .3s ease-in;
+
+	&:focus {
+		background-color: transparent;
+		border: 1px solid $darkModerateYellow;
+		outline: none;
+	}
+}
+
+/* ==============================================
+================ Media Queries ===================
+================================================ */
+@media (min-width: pxToRem(768)) {
+	.appointment-item {
+		margin: $l-box-size 0;
+		padding: $m-box-size;
+	}
+}
+
+@media (min-width: pxToRem(1024)) {
+	.appointment-item {
+		margin: $xl-box-size 0;
+		padding: $l-box-size;
+	}
+}
+
+@media (min-width: pxToRem(1400)) {
+	.appointment-item {
+		margin: $xxl-box-size 0;
+		padding: $xl-box-size;
+	}
+}

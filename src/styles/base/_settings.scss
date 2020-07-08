@@ -1,0 +1,31 @@
+@import "./functions";
+/* ============= Settings ============== */
+/* Variables */
+$white: #ffffff;
+$black: #000;
+$lightBlack: #242424;
+$yellow: #FFFF00;
+$sonicSilver: #777777;
+$darkModerateYellow: #9BB13E;
+$neonCarrot: #fb9937;
+/* Fonts */
+$nunito: "Nunito",
+sans-serif;
+$righteous: 'Righteous',
+cursive;
+/* Box Sizes */
+$xs-box-size: pxToRem(5);
+$s-box-size: pxToRem(10);
+$m-box-size: pxToRem(15);
+$l-box-size: pxToRem(25);
+$xl-box-size: pxToRem(40);
+$xxl-box-size: pxToRem(50);
+/* Text Sizes */
+$xs-text-size: pxToRem(14);
+$s-text-size: pxToRem(16);
+$m-text-size: pxToRem(20);
+$l-text-size: pxToRem(28);
+$xl-text-size: pxToRem(35);
+$xxl-text-size: pxToRem(48);
+/* Styles */
+$b-radius: 18;

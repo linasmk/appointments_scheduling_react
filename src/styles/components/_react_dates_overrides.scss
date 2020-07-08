@@ -1,0 +1,156 @@
+/* ==============================================
+======== React Dates Overrides ===========
+================================================ */
+/* ====== Date Range Picker: Input ===== */
+.DateRangePicker {
+	width: 100%;
+	display: block;
+}
+
+.DateRangePickerInput__withBorder {
+	border-radius: pxToRem($b-radius);
+	border: none;
+}
+
+.DateRangePickerInput {
+	@include horizontalFlex(space-between, center);
+}
+
+.DateInput {
+	width: 32%;
+}
+
+.DateRangePickerInput_arrow {
+	width: 20%;
+	text-align: center;
+}
+
+.DateInput_input {
+	font-size: pxToRem(16);
+	line-height: pxToRem(16);
+	padding: pxToRem(5) pxToRem(2);
+}
+
+.DateInput_input__focused {
+	border-bottom: 2px solid $darkModerateYellow;
+}
+
+.DateRangePickerInput_clearDates {
+	position: static;
+	width: pxToRem(35);
+	height: 100%;
+	background: transparent;
+	margin: 0;
+	padding: pxToRem(10);
+	line-height: pxToRem(16);
+	transform: none;
+}
+
+.DateRangePickerInput__showClearDates {
+	padding: pxToRem(0) pxToRem(8);
+}
+
+/* ====== Single Date Picker: Input ===== */
+.SingleDatePicker {
+	width: 100%;
+}
+
+.SingleDatePickerInput__withBorder {
+	border-radius: pxToRem($b-radius);
+	padding: pxToRem(8) pxToRem(15);
+	width: 100%;
+	line-height: 0;
+}
+
+.SingleDatePickerInput__withBorder .DateInput {
+	width: 100%;
+	line-height: pxToRem(18.4);
+}
+
+.SingleDatePickerInput__withBorder .DateInput_input {
+	padding: 0;
+	font-size: pxToRem(16);
+	font-family: "Times New Roman";
+}
+
+/* ============ Calendar Days ============ */
+.CalendarDay__default:focus {
+	outline: 1px solid $neonCarrot;
+	background: $neonCarrot;
+}
+
+.CalendarDay__selected {
+	background: $darkModerateYellow;
+	border: 1px solid $darkModerateYellow;
+
+	&:hover,
+	&:active {
+		background: lighten($darkModerateYellow, 10%);
+		border: 1px solid $darkModerateYellow;
+	}
+}
+
+.CalendarDay__selected_span {
+	background: lighten($darkModerateYellow, 30%);
+	border: 1px solid $darkModerateYellow;
+
+	&:hover,
+	&:active {
+		background: lighten($darkModerateYellow, 20%);
+		border: 1px solid $darkModerateYellow;
+	}
+}
+
+.CalendarDay__hovered_span {
+	background: lighten($darkModerateYellow, 30%);
+	border: 1px solid $darkModerateYellow;
+
+	&:hover {
+		background: $darkModerateYellow;
+		border: 1px solid $darkModerateYellow;
+	}
+}
+
+/* ====== Date Range Picker: Other rules ===== */
+.DayPickerKeyboardShortcuts_show__bottomRight::before {
+	border-right: 33px solid $darkModerateYellow;
+}
+
+/* ==============================================
+================ Media Queries ===================
+================================================ */
+@media (min-width: pxToRem(400)) {
+	.DateRangePicker {
+		width: 90%;
+	}
+
+	.DateInput_input {
+		padding: pxToRem(5) pxToRem(5);
+	}
+
+	.DateRangePickerInput__showClearDates {
+		padding: pxToRem(0) pxToRem(10);
+	}
+}
+
+@media (min-width: pxToRem(768)) {
+	.DateRangePicker {
+		width: 80%;
+	}
+
+	.SingleDatePicker {
+		width: 48%;
+	}
+}
+
+@media (min-width: pxToRem(1024)) {
+	.DateRangePicker {
+		width: 60%;
+	}
+}
+
+@media (min-width: pxToRem(1400)) {
+	.DateRangePicker {
+		width: 50%;
+	}
+}

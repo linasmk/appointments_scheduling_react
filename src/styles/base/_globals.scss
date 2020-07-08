@@ -1,0 +1,126 @@
+/* ============ Globals ============ */
+@import "./settings";
+@import "./functions";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: pxToRem(35);
+  margin: $m-box-size 0;
+}
+
+h2 {
+  font-size: pxToRem(25);
+  margin: pxToRem(48) 0;
+}
+
+h3 {
+  font-size: pxToRem(20);
+  margin: $s-box-size 0;
+}
+
+h4 {
+  font-size: pxToRem(16);
+  margin: pxToRem(8) 0;
+}
+
+p {
+  font-size: $xs-text-size;
+  margin: $s-box-size 0;
+}
+
+/* ============= Media Queries ============== */
+@media screen and (min-width: pxToRem(768)) {
+  h1 {
+    font-size: pxToRem(40);
+    margin: $l-box-size 0;
+  }
+
+  h2 {
+    font-size: pxToRem(28);
+    margin: $m-box-size 0;
+  }
+
+  h3 {
+    font-size: pxToRem(24);
+    margin: pxToRem(12) 0;
+  }
+
+  h4 {
+    font-size: pxToRem(18);
+    margin: pxToRem(8) 0;
+  }
+
+  p {
+    font-size: $m-text-size;
+    margin: pxToRem(12) 0;
+  }
+}
+
+@media screen and (min-width: pxToRem(1024)) {
+  h1 {
+    font-size: pxToRem(48);
+    margin: $xl-box-size 0;
+  }
+
+  h2 {
+    font-size: pxToRem(30);
+    margin: pxToRem(20) 0;
+  }
+
+  h3 {
+    font-size: pxToRem(28);
+    margin: $m-box-size 0;
+  }
+
+  h4 {
+    font-size: pxToRem(20);
+    margin: $s-box-size 0;
+  }
+
+  p {
+    font-size: pxToRem(22);
+    margin: $m-box-size 0;
+  }
+}
+
+@media screen and (min-width: pxToRem(1400)) {
+  h1 {
+    font-size: pxToRem(55);
+    margin: $xxl-box-size 0;
+  }
+
+  h2 {
+    font-size: pxToRem(35);
+    margin: $l-box-size 0;
+  }
+
+  h3 {
+    font-size: pxToRem(30);
+    margin: $m-box-size 0;
+  }
+
+  h4 {
+    font-size: pxToRem(24);
+    margin: $s-box-size 0;
+  }
+
+  p {
+    font-size: pxToRem(24);
+    margin: $m-box-size 0;
+  }
+}

@@ -1,0 +1,89 @@
+/* ==============================================
+================ Search Appointments ===================
+================================================ */
+.searchblock {
+	width: 100%;
+	height: auto;
+	margin: $l-box-size 0;
+	@include horizontalFlex(center, center);
+}
+
+.searchblock__input {
+	width: 60%;
+	padding: pxToRem(10) pxToRem(15);
+	border: none;
+	border-radius: pxToRem($b-radius) 0 0 pxToRem($b-radius);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.searchblock__select-wrapper {
+	width: 40%;
+	position: relative;
+}
+
+.caret-down {
+	position: absolute;
+	pointer-events: none;
+	margin-right: pxToRem(5);
+	right: 0;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: $white;
+}
+
+.searchblock__select-btn {
+	width: 100%;
+	border-radius: 0 pxToRem($b-radius) pxToRem($b-radius) 0;
+}
+
+.datepicker-block {
+	width: 100%;
+	@include horizontalFlex(center, center);
+	z-index: 10;
+}
+
+/* ==============================================
+================ Media Queries ===================
+================================================ */
+@media (min-width: pxToRem(400)) {
+	.searchblock__input {
+		width: 55%;
+	}
+
+	.searchblock__select-wrapper {
+		width: 35%;
+	}
+}
+
+@media (min-width: pxToRem(768)) {
+	.searchblock__input {
+		width: 60%;
+	}
+
+	.searchblock__select-wrapper {
+		width: 20%;
+	}
+}
+
+@media (min-width: pxToRem(1024)) {
+	.searchblock__input {
+		width: 40%;
+	}
+
+	.searchblock__select-wrapper {
+		width: 20%;
+	}
+}
+
+@media (min-width: pxToRem(1400)) {
+	.searchblock__input {
+		width: 35%;
+	}
+
+	.searchblock__select-wrapper {
+		width: 15%;
+	}
+}

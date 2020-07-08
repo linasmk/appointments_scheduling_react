@@ -1,0 +1,197 @@
+/* ================================================================
+========================= BUTTONS =================================
+================================================================= */
+@import "../functions";
+
+@mixin animatedButton($strongYellow, $mainBlue) {
+  background: linear-gradient($mainBlue, $strongYellow, $strongYellow);
+  position: relative;
+  z-index: 5;
+
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -5;
+    background: $mainBlue;
+    background: linear-gradient($strongYellow, $mainBlue, $mainBlue);
+    transition: opacity 0.5s ease-out;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin animatedBorderBottom($borderColor) {
+  display: inline-block;
+  color: $borderColor;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: pxToRem(4);
+    background: $borderColor;
+    transition: width 0.5s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin clickInBtn($hoverColor, $width, $height) {
+  width: $width;
+  height: $height;
+  box-shadow: inset 0 0 0 rgba(0, 64, 143, 1), 2px 3px 8px rgba(0, 3, 44, 1);
+  border-radius: 5px;
+  border: none;
+  transition: box-shadow 0.2s ease-in-out, background 0.5s ease-in-out;
+  @include noHighlightAndSelect;
+
+  &:hover {
+    background: lighten($hoverColor, 5%);
+  }
+
+  &:focus-within {
+    outline: none;
+    border: none;
+    box-shadow: inset 0 1px 0 rgba(0, 64, 143, 1), 1px 1px 5px rgba(0, 3, 44, 1);
+  }
+}
+
+@mixin btnZoomingBorder($gradientColor-1, $gradientColor-2) {
+  background: linear-gradient(90deg,
+    rgba($gradientColor-1, 1) 0%,
+    rgba($gradientColor-2, 1) 100%);
+  border: none;
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  position: relative;
+
+  &:focus {
+    outline: none;
+    transform: scale(0.95);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: "";
+    min-width: calc(100% + 5px);
+    min-height: calc(100% + 5px);
+    border: pxToRem(3) solid $gradientColor-1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover {
+    transform: scale(0.95);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin bloggerBtn() {
+  color: $black;
+  background-color: $lightGrey;
+  border: 2px solid $peach;
+  appearance: none;
+  cursor: pointer;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+  &:hover {
+    color: $white;
+    box-shadow: 0 0 40px 40px $peach inset;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin flippingBtn($gradientColor-1, $gradientColor-2) {
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 1;
+  outline: 0;
+  color: $white;
+  letter-spacing: 1px;
+  position: relative;
+  line-height: pxToRem(40);
+  display: inline-block;
+
+  &:hover {
+    &:after {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+
+    &:before {
+      opacity: 0;
+      transform: translateY(50%) rotateX(90deg);
+    }
+  }
+
+  &:focus-within {
+    &:after {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+
+    &:before {
+      opacity: 0;
+      transform: translateY(50%) rotateX(90deg);
+    }
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: $white;
+    display: block;
+    transition: 0.5s;
+    position: absolute;
+    letter-spacing: pxToRem(2);
+    background: linear-gradient(90deg,
+      rgba($gradientColor-1, 1) 0%,
+      rgba($gradientColor-2, 1) 100%);
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: $white;
+    display: block;
+    line-height: pxToRem(40);
+    transition: 0.5s;
+    position: relative;
+    background: linear-gradient(90deg,
+      rgba($gradientColor-2, 1) 0%,
+      rgba($gradientColor-1, 1) 100%);
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+  }
+}

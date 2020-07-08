@@ -1,0 +1,106 @@
+/* ==============================================
+================ Add Appointment ===================
+================================================ */
+.appointment-form {
+	margin: $l-box-size 0;
+	@include verticalFlex(center, center);
+	height: auto;
+}
+
+.appointment-form__input-block {
+	width: 100%;
+	@include verticalFlex(center, center);
+}
+
+.appointment-form__textarea-block {
+	width: 100%;
+}
+
+.appointment-form__btn-block {
+	@include verticalFlex(center, center);
+	width: 100%;
+}
+
+.appointment-form__input,
+.appointment-form__textarea {
+	width: 100%;
+	margin: $s-box-size 0;
+}
+
+.appointment-form__btn {
+	width: 80%;
+	margin: $s-box-size 0;
+	border-radius: pxToRem($b-radius);
+}
+
+/* ==============================================
+================ Media Queries ===================
+================================================ */
+@media (min-width: pxToRem(400)) {
+	.appointment-form__input-block {
+		width: 90%;
+	}
+
+	.appointment-form__textarea-block {
+		width: 90%;
+	}
+
+	.appointment-form__btn-block {
+		width: 90%;
+	}
+
+	.appointment-form__btn {
+		width: 70%;
+	}
+}
+
+@media (min-width: pxToRem(768)) {
+	.appointment-form__input-block {
+		width: 80%;
+		@include horizontalFlex(space-between, center);
+	}
+
+	.appointment-form__textarea-block {
+		width: 80%;
+	}
+
+	.appointment-form__btn-block {
+		width: 80%;
+	}
+
+	.appointment-form__input {
+		width: 48%;
+	}
+
+	.appointment-form__btn {
+		width: 40%;
+	}
+}
+
+@media (min-width: pxToRem(1024)) {
+	.appointment-form__btn {
+		width: 30%;
+	}
+
+	.appointment-form__input-block {
+		width: 60%;
+	}
+
+	.appointment-form__textarea-block {
+		width: 60%;
+	}
+}
+
+@media (min-width: pxToRem(1400)) {
+	.appointment-form__input-block {
+		width: 50%;
+	}
+
+	.appointment-form__textarea-block {
+		width: 50%;
+	}
+
+	.appointment-form__btn {
+		width: 20%;
+	}
+}

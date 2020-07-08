@@ -1,0 +1,68 @@
+/* ====================================
+========== Helper Classes ==========
+======================================= */
+.h-input-styles {
+	padding: pxToRem(10) pxToRem(15);
+	border: none;
+	border-radius: pxToRem($b-radius);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.h-btn-styles {
+	padding: pxToRem(10) pxToRem(10);
+	border: none;
+	background-color: $darkModerateYellow;
+	text-align: center;
+	display: block;
+	color: $white;
+	transition: background-color .3s ease-in-out;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	&:focus,
+	&:hover {
+		outline: none;
+		background-color: lighten($darkModerateYellow, 8%)
+	}
+}
+
+.h-icon-styles {
+	display: block;
+	position: absolute;
+	width: pxToRem(25);
+	height: pxToRem(25);
+	color: $darkModerateYellow;
+	cursor: pointer;
+	transform: scale(0);
+}
+
+.h-heading-styles {
+	color: $darkModerateYellow;
+	margin: 0;
+	font-size: pxToRem(20);
+}
+
+/* ==============================================
+================ Media Queries ===================
+================================================ */
+@media (min-width: pxToRem(768)) {
+	.h-heading-styles {
+		font-size: pxToRem(22);
+	}
+}
+
+@media (min-width: pxToRem(1024)) {
+	.h-heading-styles {
+		font-size: pxToRem(24);
+	}
+}
+
+@media (min-width: pxToRem(1400)) {
+	.h-heading-styles {
+		font-size: pxToRem(28);
+	}
+}
