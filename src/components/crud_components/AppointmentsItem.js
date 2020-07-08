@@ -103,7 +103,7 @@ class AppointmentsItem extends React.Component {
           {this.state.aptNotes}
         </p>
         <p className="appointment-item__created-at">
-          Created at: <span>{this.state.createdAt}</span>
+          Created at: <span>{/*this.state.createdAt*/}</span>
         </p>
       </section>
     );
