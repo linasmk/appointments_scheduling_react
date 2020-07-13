@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 import { AiFillCaretDown } from "react-icons/ai";
 import { BsPlusCircleFill, BsPencilSquare } from "react-icons/bs";
-import getVisibleAppointments from "../../store/selectors.js";
 import {
   setTextFilter,
   sortByDate,

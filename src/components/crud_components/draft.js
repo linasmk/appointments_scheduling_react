@@ -1,93 +1,194 @@
 /* ========= App Dependencies ============= */
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { DateRangePicker } from "react-dates";
-import { AiFillCaretDown } from "react-icons/ai";
-import { BsPlusCircleFill } from "react-icons/bs";
-import getVisibleAppointments from "../../store/selectors.js";
 import {
-  setTextFilter,
-  sortByDate,
-  sortByPatientsName,
-  setStartDate,
-  setEndDate,
-} from "../../store/filtersAction";
+  AiOutlineCloseCircle,
+  AiFillEdit,
+  AiOutlineCheckCircle,
+} from "react-icons/ai";
+import moment from "moment";
+
+/* ========= Redux ============= */
+import {
+  editAppointment,
+  removeAppointment,
+} from "../../store/appointmentsAction";
 /* ========= Code ============= */
-class SearchAppointments extends React.Component {
-  state = {
-    calendarFocused: null,
-  };
-  onDatesChange = ({ startDate, endDate }) => {
-    this.props.dispatch(setStartDate(startDate));
-    this.props.dispatch(setEndDate(endDate));
-  };
-  onFocusChange = (calendarFocused) => {
-    this.setState(() => ({
-      calendarFocused,
+class AppointmentsItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: props.appointment ? props.appointment.id : "",
+      patientName: props.appointment ? props.appointment.patientName : "",
+      aptNotes: props.appointment ? props.appointment.aptNotes : "",
+      aptDate: props.appointment ? moment(props.appointment.aptDate) : moment(),
+      createdAt: props.appointment
+        ? moment(props.appointment.createdAt)
+        : moment(),
+      isContentInEditMode: false,
+    };
+  }
+  toggleEditMode = () => {
+    this.setState((prevState) => ({
+      isContentInEditMode: !prevState.isContentInEditMode,
     }));
   };
+  onPatientNameChange = (e) => {
+    const patientName = e.target.textContent;
+    this.setState(() => ({
+      patientName,
+    }));
+  };
+  onAppointmentNotesChange = (e) => {
+    const aptNotes = e.target.textContent;
+    this.setState(() => ({
+      aptNotes,
+    }));
+  };
+  onAppointmentDateChange = (e) => {
+    const aptDate = e.target.textContent;
+    this.setState(() => ({
+      aptDate,
+    }));
+  };
+  editAppointment = () => {
+    this.setState((appointment) => {
+      this.props.dispatch(editAppointment(this.state.id, appointment));
+    });
+    this.toggleEditMode();
+  };
+
   render() {
+    console.log(this.props.aptDate);
+
     return (
-      <article className="appointments-article">
-        <section className="accordion">
-          <header className="accordion__header">
-            <h2 className="accordion__heading">Search Appointments</h2>
-            <BsPlusCircleFill className="plus-circle" />
-          </header>
-          <div className="accordion__body">
-            <div className="searchblock">
-              <input
-                className="searchblock__input h-input-styles"
-                placeholder="Search appointments"
-                type="text"
-                value={this.props.filters.text}
-                onChange={(e) => {
-                  this.props.dispatch(setTextFilter(e.target.value));
-                }}
-              />
-              <div className="searchblock__select-wrapper">
-                <select
-                  className="searchblock__select-btn"
-                  value={this.props.filters.sortBy}
-                  onChange={(e) => {
-                    if (e.target.value === "date") {
-                      this.props.dispatch(sortByDate());
-                    } else if (e.target.value === "patient's name") {
-                      this.props.dispatch(sortByPatientsName());
-                    }
-                  }}
-                >
-                  <option value="date">Date</option>
-                  <option value="patient's name">Name</option>
-                </select>
-                <AiFillCaretDown className="caret-down" />
-              </div>
-            </div>
-            <div></div>
-            <div className="datepicker-block">
-              <DateRangePicker
-                startDate={this.props.filters.startDate}
-                endDate={this.props.filters.endDate}
-                onDatesChange={this.onDatesChange}
-                focusedInput={this.state.calendarFocused}
-                onFocusChange={this.onFocusChange}
-                startDateId={"dwjkhqkehwqjkeq"}
-                endDateId={"cxzvcxbzbczxbz"}
-                showClearDates={true}
-                numberOfMonths={1}
-                isOutsideRange={() => false}
-                daySize={33}
-              />
-            </div>
-          </div>
-        </section>
-      </article>
+      <section key={this.state.id} className="appointment-item">
+        <AiOutlineCloseCircle
+          className="appointment-item__close-circle h-icon-styles"
+          onClick={(e) => {
+            this.props.dispatch(removeAppointment({ id: this.state.id }));
+          }}
+        />
+        {this.state.isContentInEditMode ? (
+          <AiOutlineCheckCircle
+            className="appointment-item__check-circle h-icon-styles"
+            onClick={this.editAppointment}
+          />
+        ) : (
+          <AiFillEdit
+            className="appointment-item__fill-edit h-icon-styles"
+            onClick={this.toggleEditMode}
+          />
+        )}
+
+        <h3 className="appointment-item__name">
+          Patient's name:
+          <span
+            contentEditable={this.state.isContentInEditMode}
+            suppressContentEditableWarning
+            onBlur={this.onPatientNameChange}
+          >
+            {" "}
+            {this.state.patientName}
+          </span>
+        </h3>
+        <p className="appointment-item__date">
+          Appointment is schedulled for:
+          <span
+            contentEditable={this.state.isContentInEditMode}
+            suppressContentEditableWarning
+            onBlur={this.onAppointmentDateChange}
+          >
+            {this.props.aptDate}
+          </span>
+        </p>
+        <h4 className="appointment-item__notes-heading">Notes</h4>
+        <p
+          className="appointment-item__notes-p"
+          contentEditable={this.state.isContentInEditMode}
+          suppressContentEditableWarning
+          onBlur={this.onAppointmentNotesChange}
+        >
+          {this.state.aptNotes}
+        </p>
+        <p className="appointment-item__created-at">
+          Created at: <span>{this.props.createdAt}</span>
+        </p>
+      </section>
     );
   }
 }
-const mapStateToProps = (state) => {
+// const AppointmentsItem = ({
+//   id,
+//   patientName,
+//   aptNotes,
+//   aptDate,
+//   createdAt,
+//   updates,
+//   dispatch,
+// }) => {
+//   const [isContentInEditMode, setEditMode] = useState(false);
+
+//   const toggleEditMode = () => setEditMode(!isContentInEditMode);
+//   return (
+//     <section key={id} className="appointment-item">
+//       <AiOutlineCloseCircle
+//         className="appointment-item__close-circle h-icon-styles"
+//         onClick={() => {
+//           dispatch(removeAppointment({ id }));
+//         }}
+//       />
+//       {isContentInEditMode ? (
+//         <AiOutlineCheckCircle
+//           className="appointment-item__check-circle h-icon-styles"
+//           onClick={toggleEditMode}
+//         />
+//       ) : (
+//         <AiFillEdit
+//           className="appointment-item__fill-edit h-icon-styles"
+//           onClick={toggleEditMode}
+//         />
+//       )}
+
+//       <h3 className="appointment-item__name">
+//         Patient's name:{" "}
+//         <span
+//           contentEditable={isContentInEditMode}
+//           suppressContentEditableWarning
+//         >
+//           {patientName}
+//         </span>
+//       </h3>
+//       <p className="appointment-item__date">
+//         Appointment is schedulled for:{" "}
+//         <span
+//           contentEditable={isContentInEditMode}
+//           suppressContentEditableWarning
+//         >
+//           {aptDate}
+//         </span>
+//       </p>
+//       <h4 className="appointment-item__notes-heading">Notes</h4>
+//       <p
+//         className="appointment-item__notes-p"
+//         contentEditable={isContentInEditMode}
+//         suppressContentEditableWarning
+//       >
+//         {aptNotes}
+//       </p>
+//       <p className="appointment-item__created-at">
+//         Created at: <span>{createdAt}</span>
+//       </p>
+//     </section>
+//   );
+// };
+
+const mapStateToProps = (state, props) => {
   return {
-    filters: state.filters,
+    appointment: state.appointments.find(
+      (appointment) => appointment.id === props.id
+    ),
   };
 };
-export default connect(mapStateToProps)(SearchAppointments);
+
+export default connect(mapStateToProps)(AppointmentsItem);

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 /* =========== Redux ================== */
-import configureStore from "./store/configureStore";
+import store from "./store/configureStore";
 /* =========== Redux ================== */
 import AppRouter from "./routers/AppRouter";
 /* ========== Styles ========== */
@@ -13,8 +13,6 @@ import "react-dates/lib/css/_datepicker.css";
 import "./styles/styles.scss";
 import "react-dates/initialize";
 /* ========== Components ========== */
-
-const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

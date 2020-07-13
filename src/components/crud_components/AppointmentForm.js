@@ -1,9 +1,6 @@
 /* ========= App Dependencies ============= */
 import React from "react";
 import moment from "moment";
-import AppointmentsItem from "./AppointmentsItem";
-
-//Single Date picker dependencies
 import { SingleDatePicker } from "react-dates";
 
 /* ========= Code ============= */

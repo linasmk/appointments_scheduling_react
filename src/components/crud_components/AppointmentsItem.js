@@ -7,6 +7,7 @@ import {
   AiOutlineCheckCircle,
 } from "react-icons/ai";
 import moment from "moment";
+import { SingleDatePicker } from "react-dates";
 
 /* ========= Redux ============= */
 import {
@@ -26,12 +27,16 @@ class AppointmentsItem extends React.Component {
         ? moment(props.appointment.createdAt)
         : moment(),
       isContentInEditMode: false,
+      calenderFocused: false,
     };
   }
   toggleEditMode = () => {
     this.setState((prevState) => ({
       isContentInEditMode: !prevState.isContentInEditMode,
     }));
+  };
+  onFocusChange = ({ focused }) => {
+    this.setState(() => ({ calenderFocused: focused }));
   };
   onPatientNameChange = (e) => {
     const patientName = e.target.textContent;
@@ -45,19 +50,24 @@ class AppointmentsItem extends React.Component {
       aptNotes,
     }));
   };
-  editAppointment = (e) => {
-    (appointment) => {
+  onDateChange = (aptDate) => {
+    if (aptDate) {
+      this.setState(() => ({ aptDate }));
+    }
+  };
+  editAppointment = () => {
+    this.setState((appointment) => {
       this.props.dispatch(editAppointment(this.state.id, appointment));
-    };
+    });
     this.toggleEditMode();
   };
+
   render() {
     return (
       <section key={this.state.id} className="appointment-item">
         <AiOutlineCloseCircle
           className="appointment-item__close-circle h-icon-styles"
           onClick={(e) => {
-            console.log(this.state.patientName);
             this.props.dispatch(removeAppointment({ id: this.state.id }));
           }}
         />
@@ -85,14 +95,22 @@ class AppointmentsItem extends React.Component {
           </span>
         </h3>
         <p className="appointment-item__date">
-          Appointment is schedulled for:
-          <span
-            contentEditable={this.state.isContentInEditMode}
-            suppressContentEditableWarning
-          >
-            {/*this.state.aptDate*/}
-          </span>
+          Appointment is schedulled for:{" "}
         </p>
+        {this.state.isContentInEditMode ? (
+          <SingleDatePicker
+            date={this.state.aptDate}
+            onDateChange={this.onDateChange}
+            focused={this.state.calenderFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+            daySize={33}
+          />
+        ) : (
+          <span>{this.state.aptDate.valueOf()}</span>
+        )}
+
         <h4 className="appointment-item__notes-heading">Notes</h4>
         <p
           className="appointment-item__notes-p"
@@ -103,7 +121,7 @@ class AppointmentsItem extends React.Component {
           {this.state.aptNotes}
         </p>
         <p className="appointment-item__created-at">
-          Created at: <span>{/*this.state.createdAt*/}</span>
+          Created at: <span>{this.props.createdAt.valueOf()}</span>
         </p>
       </section>
     );
@@ -173,6 +191,7 @@ class AppointmentsItem extends React.Component {
 //     </section>
 //   );
 // };
+
 const mapStateToProps = (state, props) => {
   return {
     appointment: state.appointments.find(
