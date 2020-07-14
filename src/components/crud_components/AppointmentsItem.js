@@ -94,23 +94,23 @@ class AppointmentsItem extends React.Component {
             {this.state.patientName}
           </span>
         </h3>
-        <p className="appointment-item__date">
-          Appointment is schedulled for:{" "}
-        </p>
-        {this.state.isContentInEditMode ? (
-          <SingleDatePicker
-            date={this.state.aptDate}
-            onDateChange={this.onDateChange}
-            focused={this.state.calenderFocused}
-            onFocusChange={this.onFocusChange}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-            daySize={33}
-          />
-        ) : (
-          <span>{this.state.aptDate.valueOf()}</span>
-        )}
-
+        <div className="appointment-item__date">
+          <p>Appointment is schedulled for: &nbsp;</p>
+          {this.state.isContentInEditMode ? (
+            <SingleDatePicker
+              noBorder={true}
+              date={this.state.aptDate}
+              onDateChange={this.onDateChange}
+              focused={this.state.calenderFocused}
+              onFocusChange={this.onFocusChange}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+              daySize={33}
+            />
+          ) : (
+            <p>{this.state.aptDate.valueOf()}</p>
+          )}
+        </div>
         <h4 className="appointment-item__notes-heading">Notes</h4>
         <p
           className="appointment-item__notes-p"

@@ -62,12 +62,25 @@
 }
 
 .appointment-item__date {
+	width: 100%;
+	@include horizontalFlex(flex-start, flex-start);
+}
+
+.appointment-item__date p:nth-child(1) {
+	color: $white;
+}
+
+.appointment-item__date p {
+	width: auto;
+	display: block;
 	font-weight: 100;
 }
 
 .appointment-item__date span {
+	width: pxToRem(200);
 	font-weight: 500;
 	font-style: italic;
+	display: block;
 }
 
 .appointment-item__notes-heading {
@@ -113,6 +126,14 @@
 	.appointment-item {
 		margin: $l-box-size 0;
 		padding: $m-box-size;
+	}
+
+	.appointment-item__date {
+		@include horizontalFlex(flex-start, center);
+	}
+
+	.appointment-item__date p {
+		width: auto;
 	}
 }
 

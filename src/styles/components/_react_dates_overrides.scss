@@ -26,7 +26,7 @@
 }
 
 .DateInput_input {
-	font-size: pxToRem(16);
+	font-size: pxToRem(14);
 	line-height: pxToRem(16);
 	padding: pxToRem(5) pxToRem(2);
 }
@@ -116,6 +116,42 @@
 	border-right: 33px solid $darkModerateYellow;
 }
 
+/* ====== Single Date Picker: Input in AppointmentsItem ===== */
+.appointment-item__date .SingleDatePicker {
+	width: pxToRem(200);
+	border: 1px solid $sonicSilver;
+	margin: pxToRem(12) 0;
+	transition: all .3s ease-in;
+
+	&:focus-within {
+		background-color: transparent;
+		border: 1px solid $darkModerateYellow;
+		outline: none;
+	}
+}
+
+.appointment-item__date .SingleDatePickerInput {
+	background-color: transparent;
+}
+
+.appointment-item__date .DateInput_input {
+	color: $sonicSilver;
+	padding: 0;
+	border: none;
+	background-color: lighten($lightBlack, 5%);
+	transition: all .3s ease-in;
+
+	&:focus-within {
+		background-color: transparent;
+	}
+}
+
+.appointment-item__date .DateInput {
+	width: 100%;
+	padding: 0;
+	background-color: transparent;
+}
+
 /* ==============================================
 ================ Media Queries ===================
 ================================================ */
@@ -134,6 +170,10 @@
 }
 
 @media (min-width: pxToRem(768)) {
+	.DateInput_input {
+		font-size: pxToRem(20);
+	}
+
 	.DateRangePicker {
 		width: 80%;
 	}
@@ -147,10 +187,18 @@
 	.DateRangePicker {
 		width: 60%;
 	}
+
+	.DateInput_input {
+		font-size: pxToRem(22);
+	}
 }
 
 @media (min-width: pxToRem(1400)) {
 	.DateRangePicker {
 		width: 50%;
+	}
+
+	.DateInput_input {
+		font-size: pxToRem(24);
 	}
 }
