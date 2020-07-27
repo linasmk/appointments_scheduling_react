@@ -1,3 +1,4 @@
+/* ========= Dependencies ============= */
 import { createStore, combineReducers } from "redux";
 import appointmentsReducer from "./appointmentsReducer";
 import filtersReducer from "./filtersReducer";
@@ -5,7 +6,6 @@ import filtersReducer from "./filtersReducer";
 /* =================================================
 =========== STORE CONFIGURATION ================
 ================================================= */
-const appName = "Appointments_Schedulling_App";
 //localStorage.clear();
 function saveToLocalStorage(state) {
   try {

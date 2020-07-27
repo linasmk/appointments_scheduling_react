@@ -1,4 +1,4 @@
-/* ========= App Dependencies ============= */
+/* ========= Dependencies ============= */
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { BsPlusCircleFill } from "react-icons/bs";

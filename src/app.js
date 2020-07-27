@@ -1,11 +1,11 @@
 /* ========= App Dependencies ============= */
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 
 /* =========== Redux ================== */
+import { Provider } from "react-redux";
 import store from "./store/configureStore";
-/* =========== Redux ================== */
+/* =========== Router ================== */
 import AppRouter from "./routers/AppRouter";
 /* ========== Styles ========== */
 import "normalize.css/normalize.css";

@@ -1,9 +1,11 @@
 /* ========= App Dependencies ============= */
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 import { AiFillCaretDown } from "react-icons/ai";
 import { BsPlusCircleFill, BsPencilSquare } from "react-icons/bs";
+/* ========== Redux ============= */
+import { connect } from "react-redux";
+
 import {
   setTextFilter,
   sortByDate,
