@@ -23,7 +23,7 @@ export default (appointments, { text, sortBy, startDate, endDate }) => {
     })
     .sort((a, b) => {
       if (sortBy === "date") {
-        return a.createdAt < b.createdAt ? 1 : -1;
+        return a.aptDate < b.aptDate ? 1 : -1;
       } else if (sortBy === "patient's name") {
         return a.patientName < b.patientName ? -1 : 1;
       }
