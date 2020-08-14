@@ -2,151 +2,172 @@
 ================ List Appointments ===================
 ================================================ */
 .appointments-article__header {
-	background-color: $black;
-	margin: $m-box-size 0;
-	padding: $m-box-size;
-	border-radius: pxToRem($b-radius);
+  background-color: $black;
+  margin: $m-box-size 0;
+  padding: $m-box-size;
+  border-radius: pxToRem($b-radius);
 }
 
 .appointments-article__heading {
-	text-align: left;
+  text-align: left;
 }
-
+.appointments-article__no-appointments {
+  text-align: center;
+  font-size: pxToRem(18);
+  display: block;
+  width: 80%;
+  align-self: center;
+}
 .appointment-item {
-	background-color: $black;
-	position: relative;
-	border: pxToRem(1) solid $sonicSilver;
-	padding: $m-box-size;
-	transition: border .3s ease-in-out;
-	margin: $m-box-size 0;
+  background-color: $black;
+  position: relative;
+  border: pxToRem(1) solid $sonicSilver;
+  padding: $m-box-size;
+  transition: border 0.3s ease-in-out;
+  margin: $m-box-size 0;
 
-	&:hover {
-		border: pxToRem(1) solid $darkModerateYellow;
+  &:hover {
+    border: pxToRem(1) solid $darkModerateYellow;
 
-		.h-icon-styles {
-			transform: scale(1);
-		}
+    .h-icon-styles {
+      transform: scale(1);
+    }
 
-		&::after {
-			@include overlay(rgba($yellow, 0.1), linear-gradient(150deg, rgba($yellow, .05),
-			rgba($darkModerateYellow, .05)));
-		}
-	}
+    &::after {
+      @include overlay(
+        rgba($yellow, 0.1),
+        linear-gradient(
+          150deg,
+          rgba($yellow, 0.05),
+          rgba($darkModerateYellow, 0.05)
+        )
+      );
+    }
+  }
 }
 
 .appointment-item__close-circle {
-	top: pxToRem(4);
-	right: pxToRem(4);
-	transition: transform .2s ease-in-out;
+  top: pxToRem(4);
+  right: pxToRem(4);
+  transition: transform 0.2s ease-in-out;
 }
 
 .appointment-item__fill-edit {
-	top: pxToRem(33);
-	right: pxToRem(4);
-	transition: transform .2s ease-in-out .2s;
+  top: pxToRem(33);
+  right: pxToRem(4);
+  transition: transform 0.2s ease-in-out 0.2s;
 }
 
 .appointment-item__check-circle {
-	top: pxToRem(33);
-	right: pxToRem(4);
-	transition: transform .2s ease-in-out .2s;
+  top: pxToRem(33);
+  right: pxToRem(4);
+  transition: transform 0.2s ease-in-out 0.2s;
 }
 
 .appointment-item__name {
-	color: $white;
-	font-weight: 100;
+  color: $white;
+  font-weight: 100;
 }
 
 .appointment-item__name span {
-	font-weight: 900;
+  font-weight: 900;
 }
 
 .appointment-item__date {
-	width: 100%;
-	@include horizontalFlex(flex-start, flex-start);
+  width: 100%;
+  @include horizontalFlex(flex-start, flex-start);
 }
 
 .appointment-item__date p:nth-child(1) {
-	color: $white;
+  color: $white;
 }
 
 .appointment-item__date p {
-	width: auto;
-	display: block;
-	font-weight: 100;
+  width: auto;
+  display: block;
+  font-weight: 100;
 }
 
 .appointment-item__date span {
-	width: pxToRem(200);
-	font-weight: 500;
-	font-style: italic;
-	display: block;
+  width: pxToRem(200);
+  font-weight: 500;
+  font-style: italic;
+  display: block;
 }
 
 .appointment-item__notes-heading {
-	font-weight: 100;
-	color: $white;
+  font-weight: 100;
+  color: $white;
 }
 
 .appointment-item__notes-p {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 .appointment-item__created-at {
-	font-weight: 100;
-	color: $white;
+  font-weight: 100;
+  color: $white;
 }
 
 .appointment-item__created-at span {
-	font-weight: 500;
-	font-style: italic;
-	color: $sonicSilver;
+  font-weight: 500;
+  font-style: italic;
+  color: $sonicSilver;
 }
 
 [contenteditable="false"] {
-	transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 [contenteditable="true"] {
-	background-color: lighten($lightBlack, 5%);
-	border: 1px solid $sonicSilver;
-	transition: all .3s ease-in;
+  background-color: lighten($lightBlack, 5%);
+  border: 1px solid $sonicSilver;
+  transition: all 0.3s ease-in;
 
-	&:focus {
-		background-color: transparent;
-		border: 1px solid $darkModerateYellow;
-		outline: none;
-	}
+  &:focus {
+    background-color: transparent;
+    border: 1px solid $darkModerateYellow;
+    outline: none;
+  }
 }
 
 /* ==============================================
 ================ Media Queries ===================
 ================================================ */
 @media (min-width: pxToRem(768)) {
-	.appointment-item {
-		margin: $l-box-size 0;
-		padding: $m-box-size;
-	}
+  .appointments-article__no-appointments {
+    font-size: pxToRem(20);
+  }
+  .appointment-item {
+    margin: $l-box-size 0;
+    padding: $m-box-size;
+  }
 
-	.appointment-item__date {
-		@include horizontalFlex(flex-start, center);
-	}
+  .appointment-item__date {
+    @include horizontalFlex(flex-start, center);
+  }
 
-	.appointment-item__date p {
-		width: auto;
-	}
+  .appointment-item__date p {
+    width: auto;
+  }
 }
 
 @media (min-width: pxToRem(1024)) {
-	.appointment-item {
-		margin: $xl-box-size 0;
-		padding: $l-box-size;
-	}
+  .appointments-article__no-appointments {
+    font-size: pxToRem(22);
+  }
+  .appointment-item {
+    margin: $xl-box-size 0;
+    padding: $l-box-size;
+  }
 }
 
 @media (min-width: pxToRem(1400)) {
-	.appointment-item {
-		margin: $xxl-box-size 0;
-		padding: $xl-box-size;
-	}
+  .appointments-article__no-appointments {
+    font-size: pxToRem(24);
+  }
+  .appointment-item {
+    margin: $xxl-box-size 0;
+    padding: $xl-box-size;
+  }
 }

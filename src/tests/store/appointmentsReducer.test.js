@@ -1,6 +1,6 @@
 import appointmentsReducer from "../../store/appointmentsReducer";
 import appointmentData from "../../data/data";
-import appointments from "./fixtures/appointments";
+import appointments from "../fixtures/appointments";
 
 test("Should set default state", () => {
   const state = appointmentsReducer(appointmentData, { type: "@@INIT" });

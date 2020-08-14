@@ -1,6 +1,6 @@
 import moment from "moment";
 import getVisibleAppointments from "../../store/selectors";
-import appointments from "./fixtures/appointments";
+import appointments from "../fixtures/appointments";
 
 test("Should filter by text value", () => {
   const filters = {

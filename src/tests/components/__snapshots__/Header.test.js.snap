@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Header correctly 1`] = `
+<header
+  className="header"
+>
+  <section
+    className="header__topbar"
+  >
+    <h1
+      className="master__heading"
+    />
+    <button
+      className="hamburger hamburger"
+      onClick={[Function]}
+    >
+      <span
+        className="hamburger__bar"
+      />
+      <span
+        className="hamburger__bar"
+      />
+      <span
+        className="hamburger__bar"
+      />
+    </button>
+  </section>
+  <nav
+    className="header__nav"
+  >
+    <ul
+      className="header__nav_ul header__nav_ul"
+    >
+      <li
+        className="header__nav_listitem"
+      >
+        <NavLink
+          activeClassName="is-active"
+          className="header__nav_link"
+          exact={true}
+          to="/"
+        >
+          Appointments
+        </NavLink>
+      </li>
+      <li
+        className="header__nav_listitem"
+      >
+        <NavLink
+          activeClassName="is-active"
+          className="header__nav_link"
+          to="/settings"
+        >
+          Settings
+        </NavLink>
+      </li>
+      <li
+        className="header__nav_listitem"
+      >
+        <NavLink
+          activeClassName="is-active"
+          className="header__nav_link"
+          to="/help"
+        >
+          Help
+        </NavLink>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;

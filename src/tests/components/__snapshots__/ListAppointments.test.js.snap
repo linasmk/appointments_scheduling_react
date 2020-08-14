@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render ListAppointments with appointments 1`] = `
+<article
+  className="appointments-article"
+>
+  <div
+    className="appointments-article__header"
+  >
+    <h2
+      className="appointments-article__heading h-heading-styles"
+    >
+      Appointments List
+    </h2>
+  </div>
+  <Connect(AppointmentsItem)
+    aptDate={0}
+    aptNotes=""
+    createdAt={0}
+    id="1"
+    key="1"
+    patientName="Bill Billy"
+  />
+  <Connect(AppointmentsItem)
+    aptDate={345600000}
+    aptNotes=""
+    createdAt={345600000}
+    id="2"
+    key="2"
+    patientName="Jim Jimy"
+  />
+  <Connect(AppointmentsItem)
+    aptDate={-345600000}
+    aptNotes=""
+    createdAt={-345600000}
+    id="3"
+    key="3"
+    patientName="Jack Jacky"
+  />
+</article>
+`;
+
+exports[`Should render ListAppointments with empty message 1`] = `
+<article
+  className="appointments-article"
+>
+  <div
+    className="appointments-article__header"
+  >
+    <h2
+      className="appointments-article__heading h-heading-styles"
+    >
+      Appointments List
+    </h2>
+  </div>
+  <h3
+    className="appointments-article__no-appointments"
+  >
+    You currently have no appointments for a specified period or search name! Add an appointment or choose another period or name.
+  </h3>
+</article>
+`;

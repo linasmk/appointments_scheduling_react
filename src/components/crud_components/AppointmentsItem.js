@@ -1,5 +1,5 @@
 /* ========= App Dependencies ============= */
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import {
   AiOutlineCloseCircle,
@@ -15,14 +15,16 @@ import {
   removeAppointment,
 } from "../../store/appointmentsAction";
 /* ========= Code ============= */
-class AppointmentsItem extends React.Component {
+export class AppointmentsItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: props.appointment ? props.appointment.id : "",
       patientName: props.appointment ? props.appointment.patientName : "",
       aptNotes: props.appointment ? props.appointment.aptNotes : "",
-      aptDate: props.appointment ? moment(props.appointment.aptDate) : moment(),
+      aptDate: props.appointment
+        ? moment(props.appointment.aptDate).valueOf()
+        : moment(),
       createdAt: props.appointment
         ? moment(props.appointment.createdAt)
         : moment(),
@@ -108,7 +110,7 @@ class AppointmentsItem extends React.Component {
               daySize={33}
             />
           ) : (
-            <p>{this.state.aptDate.valueOf()}</p>
+            <p>{this.state.aptDate}</p>
           )}
         </div>
         <h4 className="appointment-item__notes-heading">Notes</h4>
@@ -121,7 +123,7 @@ class AppointmentsItem extends React.Component {
           {this.state.aptNotes}
         </p>
         <p className="appointment-item__created-at">
-          Created at: <span>{this.props.createdAt.valueOf()}</span>
+          Created at: <span>{this.props.createdAt}</span>
         </p>
       </section>
     );

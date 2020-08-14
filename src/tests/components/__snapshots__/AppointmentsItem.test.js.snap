@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render AppointmentsItem correctly 1`] = `
+<section
+  className="appointment-item"
+  key=""
+>
+  <AiOutlineCloseCircle
+    className="appointment-item__close-circle h-icon-styles"
+    onClick={[Function]}
+  />
+  <AiFillEdit
+    className="appointment-item__fill-edit h-icon-styles"
+    onClick={[Function]}
+  />
+  <h3
+    className="appointment-item__name"
+  >
+    Patient's name:
+    <span
+      contentEditable={false}
+      onBlur={[Function]}
+      suppressContentEditableWarning={true}
+    >
+       
+    </span>
+  </h3>
+  <div
+    className="appointment-item__date"
+  >
+    <p>
+      Appointment is schedulled for:  
+    </p>
+    <p>
+      <Component />
+    </p>
+  </div>
+  <h4
+    className="appointment-item__notes-heading"
+  >
+    Notes
+  </h4>
+  <p
+    className="appointment-item__notes-p"
+    contentEditable={false}
+    onBlur={[Function]}
+    suppressContentEditableWarning={true}
+  />
+  <p
+    className="appointment-item__created-at"
+  >
+    Created at: 
+    <span>
+      0
+    </span>
+  </p>
+</section>
+`;

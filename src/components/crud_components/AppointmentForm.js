@@ -5,7 +5,6 @@ import { SingleDatePicker } from "react-dates";
 
 /* ========= Code ============= */
 const now = moment();
-console.log(now.format("MMM Do, YYYY"));
 
 export default class AppointmentForm extends React.Component {
   constructor(props) {
