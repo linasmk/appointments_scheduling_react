@@ -6,7 +6,6 @@
   "author": "Linas",
   "license": "ISC",
   "scripts": {
-    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
@@ -24,11 +23,7 @@
     "babel-loader": "^7.1.5",
     "babel-test": "^0.2.3",
     "css-loader": "^3.6.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "express": "^4.17.1",
-    "jest": "^26.1.0",
-    "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^0.10.0",
     "moment": "^2.27.0",
     "node-sass": "^4.13.1",
@@ -42,20 +37,24 @@
     "react-modal": "^3.11.2",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-test-renderer": "^16.13.1",
     "redux": "^4.0.5",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "uuid": "^8.2.0",
     "validator": "^12.2.0",
     "webpack": "^4.44.0",
-    "webpack-dev-server": "^3.11.0"
-  },
-  "devDependencies": {
     "@babel/core": "^7.10.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "regenerator-runtime": "^0.13.7",
     "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "jest": "^26.1.0",
+    "react-test-renderer": "^16.13.1",
+    "webpack-dev-server": "^3.11.0"
   }
 }

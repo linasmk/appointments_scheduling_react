@@ -8,7 +8,7 @@ module.exports = (env) => {
   return {
     entry: "./src/app.js",
     output: {
-      path: path.join(__dirname, "public"),
+      path: path.join(__dirname, "public", "dist"),
       filename: "bundle.js",
     },
     module: {
@@ -46,6 +46,7 @@ module.exports = (env) => {
     is handled via client-side code and that it should return index.html for
     all 404 routes. */
       historyApiFallback: true,
+      publicPath: "/dist/",
     },
   };
 };
