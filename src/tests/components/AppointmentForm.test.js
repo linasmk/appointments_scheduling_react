@@ -43,3 +43,20 @@ test("Should set note on textarea change", () => {
   });
   expect(wrapper.state("aptNotes")).toBe(value);
 });
+
+test("Should call onSubmit prop for valid form submission", () => {
+  const onSubmitSpy = jest.fn();
+  const wrapper = shallow(
+    <AppointmentForm appointment={appointments[0]} onSubmit={onSubmitSpy} />
+  );
+  wrapper.find("form").simulate("submit", {
+    preventDefault: () => {},
+  });
+  expect(wrapper.state("error")).toBe("");
+  expect(onSubmitSpy).toHaveBeenLastCalledWith({
+    patientName: appointments[0].patientName,
+    aptNotes: appointments[0].aptNotes,
+    aptDate: appointments[0].aptDate,
+    createdAt: appointments[0].createdAt,
+  });
+});

@@ -23,7 +23,7 @@ export class AppointmentsItem extends React.Component {
       patientName: props.appointment ? props.appointment.patientName : "",
       aptNotes: props.appointment ? props.appointment.aptNotes : "",
       aptDate: props.appointment
-        ? moment(props.appointment.aptDate).valueOf()
+        ? moment(props.appointment.aptDate.valueOf())
         : moment(),
       createdAt: props.appointment
         ? moment(props.appointment.createdAt)
@@ -54,7 +54,7 @@ export class AppointmentsItem extends React.Component {
   };
   onDateChange = (aptDate) => {
     if (aptDate) {
-      this.setState(() => ({ aptDate }));
+      this.setState(() => ({ aptDate: aptDate }));
     }
   };
   editAppointment = () => {
@@ -110,7 +110,7 @@ export class AppointmentsItem extends React.Component {
               daySize={33}
             />
           ) : (
-            <p>{this.state.aptDate}</p>
+            <p>{this.state.aptDate.valueOf()}</p>
           )}
         </div>
         <h4 className="appointment-item__notes-heading">Notes</h4>
@@ -123,7 +123,7 @@ export class AppointmentsItem extends React.Component {
           {this.state.aptNotes}
         </p>
         <p className="appointment-item__created-at">
-          Created at: <span>{this.props.createdAt}</span>
+          Created at: <span>{this.props.createdAt.valueOf()}</span>
         </p>
       </section>
     );

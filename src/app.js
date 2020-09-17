@@ -15,6 +15,8 @@ import "./styles/styles.scss";
 
 /* ========== Components ========== */
 
+console.log("testing build");
+
 ReactDOM.render(
   <Provider store={store}>
     <AppRouter />
