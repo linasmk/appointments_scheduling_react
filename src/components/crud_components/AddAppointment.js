@@ -31,14 +31,18 @@ const AddAppointment = (props) => {
           }
         >
           <AppointmentForm
-            onSubmit={(appointment) => {
-              props.dispatch(addAppointment(appointment));
-              props.dispatch(addAppointment(""));
-            }}
+            // onSubmit={(appointment) => {
+            //   props.dispatch(addAppointment(appointment));
+            // }}
+            onSubmit={props.onSubmit}
           />
         </div>
       </section>
     </article>
   );
 };
-export default connect()(AddAppointment);
+
+const mapDispatchToProps = (dispatch) => ({
+  onSubmit: (appointment) => dispatch(addAppointment(appointment)),
+});
+export default connect(undefined, mapDispatchToProps)(AddAppointment);

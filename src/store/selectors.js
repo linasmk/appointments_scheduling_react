@@ -1,6 +1,6 @@
 /* ========= Dependencies ============= */
-
 import moment from "moment";
+import { SingleDatePicker } from "react-dates";
 /* =================================================
 =========== Get Visible Appointments ================
 ================================================= */
