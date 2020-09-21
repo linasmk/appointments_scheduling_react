@@ -2,6 +2,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import appointments from "../fixtures/appointments";
+import moment from "moment";
+import { SingleDatePicker } from "react-dates";
 /* ========== Components ========== */
 import AppointmentForm from "../../components/crud_components/AppointmentForm";
 
@@ -59,4 +61,11 @@ test("Should call onSubmit prop for valid form submission", () => {
     aptDate: appointments[0].aptDate,
     createdAt: appointments[0].createdAt,
   });
+});
+
+test("Should set new date on date change", () => {
+  const now = moment();
+  const wrapper = shallow(<AppointmentForm />);
+  wrapper.find(SingleDatePicker).prop("onDateChange")(now);
+  expect(wrapper.state("createdAt")).toEqual(now);
 });

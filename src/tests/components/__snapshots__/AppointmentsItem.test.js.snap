@@ -32,7 +32,7 @@ exports[`Should render AppointmentsItem correctly 1`] = `
       Appointment is schedulled for:  
     </p>
     <p>
-      <Component />
+      0
     </p>
   </div>
   <h4
