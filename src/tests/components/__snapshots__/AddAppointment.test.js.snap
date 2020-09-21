@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render AddAppointment correctly 1`] = `
+<article
+  className="appointments-article"
+>
+  <section
+    className="accordion accordion-open"
+  >
+    <header
+      className="accordion__header"
+    >
+      <h2
+        className="accordion__heading h-heading-styles"
+      >
+        Add Appointment
+      </h2>
+      <BsPlusCircleFill
+        className="plus-circle"
+        onClick={[Function]}
+      />
+    </header>
+    <div
+      className="accordion__body js-accordion-open-add"
+    >
+      <AppointmentForm
+        onSubmit={[MockFunction]}
+      />
+    </div>
+  </section>
+</article>
+`;

@@ -9,7 +9,7 @@ import AppointmentForm from "./AppointmentForm";
 
 /* ========= Code ============= */
 
-const AddAppointment = (props) => {
+export const AddAppointment = (props) => {
   const [isAccordionOpen, setAccordion] = useState(true);
   const toggleAccordion = () => setAccordion(!isAccordionOpen);
   return (
