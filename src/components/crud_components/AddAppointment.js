@@ -34,7 +34,7 @@ export const AddAppointment = (props) => {
             // onSubmit={(appointment) => {
             //   props.dispatch(addAppointment(appointment));
             // }}
-            onSubmit={props.onSubmit}
+            onSubmit={props.addAppointment}
           />
         </div>
       </section>
@@ -43,6 +43,6 @@ export const AddAppointment = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (appointment) => dispatch(addAppointment(appointment)),
+  addAppointment: (appointment) => dispatch(addAppointment(appointment)),
 });
 export default connect(undefined, mapDispatchToProps)(AddAppointment);

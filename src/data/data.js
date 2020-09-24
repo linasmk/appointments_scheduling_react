@@ -158,7 +158,7 @@ const appointmentData = [
     patientAge: "41",
     aptNotes:
       "Laborum ex laboris consequat voluptate. Nisi reprehenderit et qui consequat cupidatat pariatur enim. Commodo dolore ex aliqua cillum cupidatat irure aliquip elit. Ullamco Lorem nulla exercitation culpa aliquip mollit sint tempor et magna do laborum laboris irure. Id reprehenderit laboris qui labore incididunt veniam esse cupidatat in excepteur id commodo. Culpa officia minim veniam anim culpa dolor.",
-    aptDate: "2020-12-1 10:00",
+    aptDate: "2020-09-01 10:00",
     createdAt: "2020-01-01",
   },
   {
@@ -176,7 +176,7 @@ const appointmentData = [
     patientAge: "80",
     aptNotes:
       "Fugiat sit pariatur labore cillum anim reprehenderit deserunt dolore tempor sunt.",
-    aptDate: "2020-12-1 15:15",
+    aptDate: "2020-09-1 15:15",
     createdAt: "2020-01-01",
   },
   {
@@ -200,7 +200,7 @@ const appointmentData = [
     patientName: "Stine Lauridsen",
     patientAge: "22",
     aptNotes: "Sint veniam mollit occaecat nostrud reprehenderit.",
-    aptDate: "11/02/2020",
+    aptDate: "2020-09-07 15:00",
     createdAt: "2020-01-01",
   },
   {

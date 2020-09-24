@@ -1,16 +1,13 @@
 import React from "react";
 import { shallow } from "enzyme";
-import {
-  AddAppointment,
-  AddBook,
-} from "../../components/crud_components/AddAppointment";
+import { AddAppointment } from "../../components/crud_components/AddAppointment";
 import appointments from "../fixtures/appointments";
 
-let onSubmit, wrapper;
+let addAppointment, wrapper;
 
 beforeEach(() => {
-  onSubmit = jest.fn();
-  wrapper = shallow(<AddAppointment onSubmit={onSubmit} />);
+  addAppointment = jest.fn();
+  wrapper = shallow(<AddAppointment addAppointment={addAppointment} />);
 });
 
 test("Should render AddAppointment correctly", () => {
@@ -19,5 +16,5 @@ test("Should render AddAppointment correctly", () => {
 
 test("Should handle onSubmit", () => {
   wrapper.find("AppointmentForm").prop("onSubmit")(appointments[1]);
-  expect(onSubmit).toHaveBeenLastCalledWith(appointments[1]);
+  expect(addAppointment).toHaveBeenLastCalledWith(appointments[1]);
 });

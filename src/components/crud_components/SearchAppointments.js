@@ -20,12 +20,23 @@ const SearchAppointments = (props) => {
   const [isAccordionOpen, setAccordion] = useState(false);
 
   function onDatesChange({ startDate, endDate }) {
-    props.dispatch(setStartDate(startDate));
-    props.dispatch(setEndDate(endDate));
+    props.setStartDate(startDate);
+    props.setEndDate(endDate);
   }
   function onFocusChange(calendarFocused) {
     setState(() => calendarFocused);
   }
+  function onTextChange(e) {
+    props.setTextFilter(e.target.value);
+  }
+  function onSortChange(e) {
+    if (e.target.value === "date") {
+      props.sortByDate();
+    } else if (e.target.value === "patient's name") {
+      props.sortByPatientsName();
+    }
+  }
+
   const toggleAccordion = () => setAccordion(!isAccordionOpen);
 
   return (
@@ -52,21 +63,13 @@ const SearchAppointments = (props) => {
               placeholder="Search appointments"
               type="text"
               value={props.filters.text}
-              onChange={(e) => {
-                props.dispatch(setTextFilter(e.target.value));
-              }}
+              onChange={onTextChange}
             />
             <div className="searchblock__select-wrapper">
               <select
                 className="searchblock__select-btn h-btn-styles"
                 value={props.filters.sortBy}
-                onChange={(e) => {
-                  if (e.target.value === "date") {
-                    props.dispatch(sortByDate());
-                  } else if (e.target.value === "patient's name") {
-                    props.dispatch(sortByPatientsName());
-                  }
-                }}
+                onChange={onSortChange}
               >
                 <option value="date">Date</option>
                 <option value="patient's name">Name</option>
@@ -101,4 +104,11 @@ const mapStateToProps = (state) => {
     filters: state.filters,
   };
 };
-export default connect(mapStateToProps)(SearchAppointments);
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
+  sortByDate: () => dispatch(sortByDate()),
+  sortByPatientsName: () => dispatch(sortByPatientsName()),
+  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+  setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SearchAppointments);
