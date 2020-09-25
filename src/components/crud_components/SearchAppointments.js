@@ -15,7 +15,7 @@ import {
   setEndDate,
 } from "../../store/filtersAction";
 /* ========= Code ============= */
-const SearchAppointments = (props) => {
+export const SearchAppointments = (props) => {
   const [calendarFocused, setState] = useState(null);
   const [isAccordionOpen, setAccordion] = useState(false);
 
