@@ -16,22 +16,22 @@ import {
 } from "../../store/appointmentsAction";
 /* ========= Code ============= */
 export class AppointmentsItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: props.appointment ? props.appointment.id : "",
-      patientName: props.appointment ? props.appointment.patientName : "",
-      aptNotes: props.appointment ? props.appointment.aptNotes : "",
-      aptDate: props.appointment
-        ? moment(props.appointment.aptDate.valueOf())
-        : moment(),
-      createdAt: props.appointment
-        ? moment(props.appointment.createdAt)
-        : moment(),
-      isContentInEditMode: false,
-      calenderFocused: false,
-    };
-  }
+  state = {
+    id: this.props.appointment ? this.props.appointment.id : "",
+    patientName: this.props.appointment
+      ? this.props.appointment.patientName
+      : "",
+    aptNotes: this.props.appointment ? this.props.appointment.aptNotes : "",
+    aptDate: this.props.appointment
+      ? moment(this.props.appointment.aptDate.valueOf())
+      : moment(),
+    createdAt: this.props.appointment
+      ? moment(this.props.appointment.createdAt)
+      : moment(),
+    isContentInEditMode: false,
+    calenderFocused: false,
+  };
+
   toggleEditMode = () => {
     this.setState((prevState) => ({
       isContentInEditMode: !prevState.isContentInEditMode,
@@ -110,7 +110,11 @@ export class AppointmentsItem extends React.Component {
               daySize={33}
             />
           ) : (
-            <p>{this.state.aptDate.valueOf()}</p>
+            <p>
+              {moment(this.state.aptDate.valueOf()).format(
+                "MMMM Do, YYYY. [At:] LT"
+              )}
+            </p>
           )}
         </div>
         <h4 className="appointment-item__notes-heading">Notes</h4>
@@ -123,7 +127,12 @@ export class AppointmentsItem extends React.Component {
           {this.state.aptNotes}
         </p>
         <p className="appointment-item__created-at">
-          Created at: <span>{this.props.createdAt.valueOf()}</span>
+          Created at:{" "}
+          <span>
+            {moment(this.props.createdAt.valueOf()).format(
+              "MMMM Do, YYYY. [At:] LT"
+            )}
+          </span>
         </p>
       </section>
     );
