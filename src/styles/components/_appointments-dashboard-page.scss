@@ -35,7 +35,7 @@
   text-align: left;
 }
 
-.plus-circle {
+.circle-icon {
   font-size: pxToRem(18);
   color: $darkModerateYellow;
 }
@@ -59,7 +59,7 @@
     margin: $l-box-size 0;
   }
 
-  .plus-circle {
+  .circle-icon {
     font-size: pxToRem(20);
   }
 }
@@ -73,7 +73,7 @@
     padding: $l-box-size;
   }
 
-  .plus-circle {
+  .circle-icon {
     font-size: pxToRem(22);
   }
 }
@@ -83,7 +83,7 @@
     @include containerWidth_xl;
   }
 
-  .plus-circle {
+  .circle-icon {
     font-size: pxToRem(24);
   }
 }

@@ -1,9 +1,8 @@
 /* ========= App Dependencies ============= */
 import React, { useState } from "react";
-import moment from "moment";
 import { DateRangePicker } from "react-dates";
 import { AiFillCaretDown } from "react-icons/ai";
-import { BsPlusCircleFill, BsPencilSquare } from "react-icons/bs";
+import { BsPlusCircleFill, BsFillDashCircleFill } from "react-icons/bs";
 /* ========== Redux ============= */
 import { connect } from "react-redux";
 
@@ -48,7 +47,12 @@ export const SearchAppointments = (props) => {
           <h2 className="accordion__heading h-heading-styles">
             Search Appointments
           </h2>
-          <BsPlusCircleFill className="plus-circle" onClick={toggleAccordion} />
+          {isAccordionOpen ? 
+            <BsFillDashCircleFill className="circle-icon" onClick={toggleAccordion} />
+            : 
+            <BsPlusCircleFill className="circle-icon" onClick={toggleAccordion} /> 
+           }
+          
         </header>
         <div
           className={

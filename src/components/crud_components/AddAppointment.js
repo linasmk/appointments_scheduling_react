@@ -1,7 +1,7 @@
 /* ========= Dependencies ============= */
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { BsPlusCircleFill } from "react-icons/bs";
+import { BsPlusCircleFill, BsFillDashCircleFill } from "react-icons/bs";
 import { addAppointment } from "../../store/appointmentsAction";
 
 /* ========= Components ============= */
@@ -21,7 +21,12 @@ export const AddAppointment = (props) => {
           <h2 className="accordion__heading h-heading-styles">
             Add Appointment
           </h2>
-          <BsPlusCircleFill className="plus-circle" onClick={toggleAccordion} />
+
+          {isAccordionOpen ? 
+            <BsFillDashCircleFill className="circle-icon" onClick={toggleAccordion} />
+            : 
+            <BsPlusCircleFill className="circle-icon" onClick={toggleAccordion} /> 
+           }
         </header>
         <div
           className={

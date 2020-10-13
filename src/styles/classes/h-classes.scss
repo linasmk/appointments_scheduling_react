@@ -46,6 +46,23 @@
 	font-size: pxToRem(20);
 }
 
+.h-under-development-warning {
+	color: $darkModerateYellow;
+	text-align: center;
+	animation: element-pop-up .4s;
+}
+
+/* =============== Animations ================= */
+@keyframes element-pop-up {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
 /* ==============================================
 ================ Media Queries ===================
 ================================================ */
